@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/jquery-2.0.3.min.js"></script>
+</head>
+<body>
+<!-- Add your site or application content here -->
+<h1>Caching bug in Safari</h1>
+
+<p>Safari in iOS 6/7 has a bug where it caches non-identical requests. <strong>It applies both to the normal browser and the UIWebView</strong>
+    </p>
+
+    <p>This is a demo of that bug.</p>
+
+<p>
+    Simply fill in an authorization token for Trumf and it will ship off a request
+    to that service. The returned request should be identical, even though the
+    requests represent two different users.
+</p>
+
+<h2>Beware! Only applies to successful GETs</h2>
+
+<p>
+    I have only seen this happen on successful GETs. So if a service call fails, it is not cached.
+</p>
+
+
+<h2>Sample token</h2>
+
+<p> (invalid after one day) </p>
+<pre>314267c8-e9df-48e8-a7de-c93b86d0f9c9 </pre>
+
+<input type="text" autocomplete placeholder="Input a token"/>
+<input type="submit"/>
+
+<h2>Result</h2>
+<pre id="result"></pre>
+
+<script>
+    var $submit = $('input[type=submit]'),
+            $tokenInput = $('input[type=text]'),
+            $result = $('#result'),
+            serviceURL = 'https://preprod.service-dk.norgesgruppen.no/trumf/husstand/1100';
+
+    $submit.click(function () {
+        $.ajax({
+            url        : serviceURL,
+            type       : 'GET',
+            beforeSend : function (xhr) {
+
+                var token = $tokenInput.val();
+                console.log('setting authorization to ' + token);
+
+                // Set all the correct headers
+                xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+                xhr.setRequestHeader('Accept', 'application/json');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+
+            },
+
+            complete : function (jqXHR, textStatus) {
+                if (!textStatus === 'success') {
+                    console.error("Error occurred");
+                }
+                $result.html(jqXHR.responseText);
+            }
+        });
+    });
+
+</script>
+
+
+</body>
+</html>
