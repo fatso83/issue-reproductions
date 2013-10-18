@@ -17,8 +17,14 @@
 <!-- Add your site or application content here -->
 <h1>Caching bug in Safari</h1>
 
-<p>Safari in iOS 6/7 has a bug where it caches non-identical requests. <strong>It applies both to the normal browser and
-    the UIWebView</strong>
+<p>
+    Safari in iOS 6/7 has a bug where it caches non-identical requests.
+    <strong>It applies both to the normal browser and the UIWebView</strong>
+    By sniffing <a href="http://charlesproxy.com">SSL traffic</a> and
+    watching the network tab in Safari's debugger I was able to show that
+    even though the debugger/Safari showed two GET requests being made,
+    only one was actually passed over the wire.
+    <a href="http://goo.gl/SSzdjJ">Screenshots.</a>
 </p>
 
 <p>This is a demo of that bug.</p>
@@ -38,6 +44,7 @@
     The only such I could come up with was for the trumf service, but feel free
     to fork off if you can find any better public webservice ...
 </p>
+
 <p>
     Simply fill in an authorization token for Trumf and it will ship off a request
     to that service. The returned request should be identical, even though the
