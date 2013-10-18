@@ -24,10 +24,17 @@
 
 
 <h2>Test</h2>
+
 <p>
     I have made a dummy service on Google AppEngine that simply returns any
     Authorization header and a time. If it gets a Cache-Control header from
     the client, it sets it on the response as well.
+</p>
+
+<p>
+    Unfortunately one cannot remove the Cache-Control header entirely when
+    running on the AppEngine, so I have simply chosen to set it to 10 seconds
+    in the case no Cache-Control is sent from the client.
 </p>
 
 <input type="text" autocomplete placeholder="Input a token"/>
@@ -41,7 +48,7 @@
             $tokenInput = $('input[type=text]'),
             $result = $('#result'),
 //            serviceURL = 'http://localhost:8080';
-                serviceURL = 'http://apple-bug-id-15255159.appspot.com';
+            serviceURL = 'http://apple-bug-id-15255159.appspot.com';
     //            serviceURL = 'https://preprod.service-dk.norgesgruppen.no/trumf/husstand/1100';
 
     $submit.click(function () {
@@ -74,17 +81,21 @@
 
 
 <h2>Reason</h2>
+
 <p>
     It seems to cache a resource as long as there is no Cache-Control header set.
     Changing the Authorization header does not seem to affect its view on a request
     for a resource to be different.
 </p>
+
 <h2>Fix</h2>
+
 <p>Make the server return a 'Cache-Control : no-cache' header, or add a random query parameter
     (which is what passing { cache : false } to $.ajax() does)
 </p>
 
 <h2>Establishment</h2>
+
 <p>
     By sniffing <a href="http://charlesproxy.com">SSL traffic</a> and
     watching the network tab in Safari's debugger I was able to show that
