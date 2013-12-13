@@ -1,4 +1,4 @@
-# Web Storm breaking jsdom
+# [WEB-10294](http://youtrack.jetbrains.com/issue/WEB-10294) Web Storm breaking jsdom
 
 When setup up a mocha test in WebStorm the tests run fine in Node.
 
