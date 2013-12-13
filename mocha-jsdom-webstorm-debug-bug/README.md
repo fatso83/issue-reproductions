@@ -17,8 +17,10 @@ In other words, the test runner interferes with jsdom, giving another result
 than when running in 'normal' mode.
 
 To verify the bug:
-1. clone the repo
+
+1. Clone and see that the tests run normally
+`git clone https://github.com/fatso83/bug_demos && cd bug_demos/mocha-jsdom-webstorm-debug-bug && npm install && mocha`
 2. open the directory in webstorm
 3. configure a Mocha test run; default values and test directory pointing to the 'test' folder
-4. Run the tests
+4. Run the tests using the normal Run
 5. Run the tests using the Debug Run and see it fail in the beforeAll() part
