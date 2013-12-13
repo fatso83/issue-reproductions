@@ -1,0 +1,9 @@
+{
+	"name"    : "mocha-jsdom-webstorm-debug-bug",
+	"version" : "0.0.1",
+	"dependencies" : {
+		"mocha" : "*",
+		"jsdom" : "*",
+		"assert" : "*"
+	}
+}
