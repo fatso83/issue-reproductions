@@ -1,0 +1,14 @@
+{
+  "name": "sinon-bug",
+  "version": "1.0.0",
+  "script": {
+    "test": "./node_modules/karma/bin/karma start karma.minimal.conf.js"
+  },
+  "dependencies": {
+    "karma": "*",
+    "karma-browserstack-launcher": "*",
+    "karma-expect": ">=1.1.0",
+    "karma-mocha": ">=0.1.1",
+    "karma-sinon": ">=1.0.0"
+  }
+}
