@@ -2,7 +2,6 @@
   "name": "sinon-bug",
   "version": "1.0.0",
   "script": {
-    "test": "./node_modules/karma/bin/karma start karma.minimal.conf.js"
   },
   "dependencies": {
     "karma": "*",
