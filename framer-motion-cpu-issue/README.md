@@ -11,10 +11,14 @@ has been unmounted, but it seems FM keep the render loop going for infinity.
 ![cpu usage 12%](./.assets/cpu-usage.png)
 
 ## To reproduce
-Install the code
+### 1. View example in a browser
+You can either check out the [example website](https://fatso83.github.io/issue-reproductions/framer-motion-cpu-issue/) or install the code locally on your own machine:
+
 ```
 npm i
 npx vite
 ```
-Now, open the link and watch the animation take place. Then open Chrome's Task Manager and check out the cpu usage for the current tab after the animation has subsided.
-It should stay at about 12%. If you change the code so that `repeat=3`, it should quickly die off.
+Now, open the link and watch the animation take place. 
+
+### 2. Check cpu usage in Chrome Task Manager
+Then open Chrome's Task Manager and check out the cpu usage for the current tab after the animation has subsided.  It should stay at a non-zero number, which is OS and computer dependant. On my Linux box it is a constant 12%, on my M1 Macbook it is about 3%. If you change the code so that `repeat=3`, the cpu should quickly die off and idle around 0%.
