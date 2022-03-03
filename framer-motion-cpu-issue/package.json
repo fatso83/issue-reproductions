@@ -2,7 +2,7 @@
   "name": "framer-motion-cpu-issue",
   "scripts": {
     "build": "npx vite --base /issue-reproductions/framer-motion-cpu-issue/ build",
-    "predeploy": "npm run build && git checkout gh-pages && mv dist/* . && git add . && git commit -m 'updated framer-motion cpu bug'",
+    "predeploy": "npm run build && git checkout gh-pages && rimraf index.html assets && mv dist/* . && git add . && git commit -m 'updated framer-motion cpu bug'",
     "deploy": "git push origin gh-pages:gh-pages"
   },
   "dependencies": {
@@ -10,6 +10,7 @@
     "framer-motion": "^6.2.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "rimraf": "^3.0.2",
     "styled-components": "^5.3.3",
     "vite": "^2.8"
   },
