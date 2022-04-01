@@ -1,0 +1,13 @@
+{
+  "name": "vite-2.9-server.hmr.port",
+  "version": "1.0.0",
+  "description": "Vite 2.9 started capturing server.hmr.port",
+  "main": "index.js",
+  "scripts": {
+    "test": "netstat -tapn | grep 13001 && echo server.hmr.port captured || echo server.hmr.port not captured"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^2.9.1"
+  }
+}
