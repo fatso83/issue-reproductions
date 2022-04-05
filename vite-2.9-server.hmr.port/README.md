@@ -1,5 +1,27 @@
 # Repro case for Vite 2.9 capturing server.hmr.port
 
+## EDIT: working solution from the Vite bug tracker
+Seems like this was working due to relying on some undocumented bug in Vite
+that was recently fixed. Lucky for me, someone posted a workaround in the 
+[issue I created (#7562)](https://github.com/vitejs/vite/issues/7562).
+
+Using that fix the port is no longer captured.
+```diff
+diff --git a/vite-2.9-server.hmr.port/vite.config.js b/vite-2.9-server.hmr.port/vite.config.js
+index d5ea5b2..f24584e 100644
+--- a/vite-2.9-server.hmr.port/vite.config.js
++++ b/vite-2.9-server.hmr.port/vite.config.js
+@@ -4,7 +4,7 @@ module.exports = defineConfig({
+   server: {
+     port: 15888,
+     hmr: {
+-      port: 13001,
++      clientPort: 13001,
+     },
+   },
+ });
+```
+
 ## Automatic test
 
 ```
