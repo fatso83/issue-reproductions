@@ -5,6 +5,8 @@
     "mkdirp": "^2.1.3"
   },
   "scripts": {
-    "preinstall": "npm exec mkdirp ~/.config/@fatso83/fetch-todays-calendar ~/.local/share/@fatso83/fetch-todays-calendar"
+    "preinstall": "npm exec mkdirp ~/.config/@fatso83/fetch-todays-calendar ~/.local/share/@fatso83/fetch-todays-calendar",
+    "global-only": "rm -r node_modules/ package-lock.json 2>/dev/null;npm i -g",
+    "local-global": "rm -r node_modules/ package-lock.json 2>/dev/null;npm i;npm i -g"
   }
 }

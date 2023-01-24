@@ -87,3 +87,32 @@ npm ERR! A complete log of this run can be found in:
 npm ERR!     /Users/carlerik/.npm/_logs/2023-01-24T14_29_15_438Z-debug-0.log
 
 ```
+
+## NPM 9: local install followed by global install _as NPM script_
+> Success! This should be the same as the one above that fails, right?
+```
+$ npm --version
+9.2.0
+
+$ npm run local-global
+
+> local-global
+> rm -r node_modules/ package-lock.json 2>/dev/null;npm i;npm i -g
+
+
+> preinstall
+> npm exec mkdirp ~/.config/@fatso83/fetch-todays-calendar ~/.local/share/@fatso83/fetch-todays-calendar
+
+
+added 1 package, and audited 2 packages in 1s
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+changed 2 packages in 310ms
+
+1 package is looking for funding
+  run `npm fund` for details
+```
