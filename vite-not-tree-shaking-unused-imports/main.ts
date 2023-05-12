@@ -7,6 +7,6 @@ document.querySelector("#app").innerHTML = `
   <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
 `;
 
-const myModule = dynamicImportWithRetry(() => import("./my-module.ts"));
+const myModule = dynamicImportWithRetry(() => import("./my-module"));
 
 (async () => console.log("answer", (await myModule).default))();

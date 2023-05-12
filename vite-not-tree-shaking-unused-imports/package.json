@@ -8,7 +8,7 @@
     "prepreview": "npm run build",
     "prebuild": "npm run typecheck",
     "preview": "vite preview",
-    "typecheck": "npx tsc --esModuleInterop true --lib es2015,dom --noEmit --moduleResolution nodeNext --allowImportingTsExtensions main.ts"
+    "typecheck": "npx tsc --esModuleInterop true --lib es2015,dom --noEmit  main.ts"
   },
   "devDependencies": {
     "vite": "^4.3.5"
