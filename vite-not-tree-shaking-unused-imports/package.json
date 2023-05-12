@@ -6,12 +6,15 @@
     "dev": "vite",
     "build": "vite build",
     "prepreview": "npm run build",
-    "preview": "vite preview"
+    "prebuild": "npm run typecheck",
+    "preview": "vite preview",
+    "typecheck": "npx tsc --esModuleInterop true --lib es2015,dom --noEmit --moduleResolution nodeNext --allowImportingTsExtensions main.ts"
   },
   "devDependencies": {
     "vite": "^4.3.5"
   },
   "dependencies": {
-    "@fatso83/retry-dynamic-import": "^1.1.0"
+    "@fatso83/retry-dynamic-import": "^1.0.7",
+    "typescript": "^5.0.4"
   }
 }
