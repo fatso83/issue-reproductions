@@ -3,11 +3,12 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "test": "run-s -c test-existence test-dollar test-wildcard-match",
+    "test": "run-s -c test-existence test-dollar test-wildcard-match:*",
     "test-existence": "ls -lh 'test/$typical.remix-route$withParams.spec.ts'",
     "test-all": "NODE_OPTIONS='--no-warnings' npx playwright test",
-    "test-dollar": "NODE_OPTIONS='--no-warnings' npx playwright test test/$typical.remix-route$withParams.spec.ts",
-    "test-wildcard-match": "NODE_OPTIONS='--no-warnings' npx playwright test test/*typical.remix-route*withParams.spec.ts"
+    "test-dollar": "NODE_OPTIONS='--no-warnings' npx playwright test 'test/$typical.remix-route$withParams.spec.ts'",
+    "test-wildcard-match:quoted": "NODE_OPTIONS='--no-warnings' npx playwright test 'test/*typical.remix-route*withParams.spec.ts'",
+    "test-wildcard-match:unquoted": "NODE_OPTIONS='--no-warnings' npx playwright test test/*typical*withParams.spec.ts"
   },
   "dependencies": {
     "@playwright/test": "1.40.0",
