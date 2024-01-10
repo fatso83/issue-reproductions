@@ -7,7 +7,7 @@
 ```
 
 ## To fix the issue
-Toggle the line with `<parameters>true</parameters>` in the pom.xml of the common library
+Toggle the line with `<parameters>true</parameters>` in [the pom.xml of the common library](https://github.com/fatso83/issue-reproductions/blob/master/spring-3.2.0-autowire-issue/common-library/pom.xml#L105)
 and re-run the above command.
 
 The [fix/explanation was supplied by the Spring Team's Juergen Hoeller](https://github.com/spring-projects/spring-framework/issues/31998#issuecomment-1884479117)
