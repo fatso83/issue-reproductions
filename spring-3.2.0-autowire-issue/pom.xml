@@ -77,14 +77,14 @@
 
         <dependency>
             <groupId>com.github.fatso83</groupId>
-            <artifactId>common-test-code</artifactId>
+            <artifactId>common-library</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <!-- Testing -->
         <dependency>
             <groupId>com.github.fatso83</groupId>
-            <artifactId>common-test-code</artifactId>
+            <artifactId>common-library</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>test-jar</type>
             <scope>test</scope>
