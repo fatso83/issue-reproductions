@@ -21,3 +21,4 @@ Caused by: java.lang.ClassNotFoundException: shaded_package.org.hamcrest.SelfDes
 
 ## Why
 I am not sure. Would be great to understand what makes this error appear by simply bumping the version number.
+Posted a question on [StackOverflow](https://stackoverflow.com/questions/79078776/why-does-upgrading-firebase-admin-from-9-3-to-9-4-cause-junit-to-fail-with-an-er).
