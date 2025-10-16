@@ -1,0 +1,32 @@
+# PyCharm Issue when manipulating __path__ 
+
+In python, you can manipulate the `__path__` variable that is available 
+in a package's `__init__.py` file. This variable contains a _list_ of the
+locations that Python will look for this package and its submodules. 
+
+_Unfortunately, this does not work in IntelliJ (or derivatives like PyCharm)_
+
+For instance, in this demo project you have this weird directory layout:
+![layout](layout.png)
+
+The two modules feature.py and other_feature.py live in different folders, 
+yet are part of the same namespace by having an __init__.py in a top-level 
+package called `engine` that essentially does this:
+```
+    __path__.append("../src/core/python")
+    __path__.append("../src/not-core/python")
+```
+
+That enables us to do this:
+```python
+✦ ❯ uv run python -c 'import engine.submodule.core.feature'
+my feature is running
+
+✦ ❯ uv run python -c 'import engine.submodule.core.other_feature'
+not core
+```
+
+## The problem
+
+IntelliJ (2025.1.6 Ultimate Edition) does not recognise this:
+![problem.png](problem.png)

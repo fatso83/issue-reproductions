@@ -5,3 +5,4 @@ vite
 .vite/
 playwright-report
 target/
+**/*.egg-info/

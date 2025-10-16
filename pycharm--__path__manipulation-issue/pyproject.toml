@@ -1,0 +1,15 @@
+[project]
+name = "demo-path"
+version = "0.1.7" 
+requires-python = ">=3.11"
+readme = "README.md"
+
+[build-system]
+requires = [ "setuptools" ]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "subdir" }
+
+[tool.setuptools.packages.find]
+where = [ "subdir" ]
