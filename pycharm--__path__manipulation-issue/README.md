@@ -18,7 +18,7 @@ package called `engine` that essentially does this:
 ```
 
 That enables us to do this:
-```python
+```bash
 ✦ ❯ uv run python -c 'import engine.submodule.core.feature'
 my feature is running
 
