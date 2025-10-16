@@ -1,8 +1,9 @@
 # PyCharm Issue when manipulating __path__ 
+> Reported as [PY-84876](https://youtrack.jetbrains.com/issue/PY-84876/Python-plugin-does-not-recognise-path-manipulation)
 
 ## The problem
 
-IntelliJ (2025.1.6 Ultimate Edition) does not recognise this:
+IntelliJ (Ultimate Edition versions 2025.1.6 and 2025.2.3) does not recognise this:
 ![problem.png](problem.png)
 
 You cannot navigate to submodules of `engine`, even though Python has no issues with this
