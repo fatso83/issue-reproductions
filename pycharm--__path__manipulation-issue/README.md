@@ -30,3 +30,13 @@ not core
 
 IntelliJ (2025.1.6 Ultimate Edition) does not recognise this:
 ![problem.png](problem.png)
+
+You cannot navigate to submodules of `engine`, even though Python has no issues with this
+
+## Reproduction
+
+- Install the deps in a VirtualEnv (assuming `uv` is installed): `uv sync`
+- Open the project: `idea .`
+- Configure the project to use the SDK in the `.venv`
+- Open `main.py`
+- Observe red squigglies
