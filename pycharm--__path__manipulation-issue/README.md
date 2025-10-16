@@ -1,6 +1,20 @@
 # PyCharm Issue when manipulating __path__ 
 
-In python, you can manipulate the `__path__` variable that is available 
+## The problem
+
+IntelliJ (2025.1.6 Ultimate Edition) does not recognise this:
+![problem.png](problem.png)
+
+You cannot navigate to submodules of `engine`, even though Python has no issues with this
+
+```bash
+❯ uv run python -c 'import engine.main'
+my feature is running
+Result: 42
+```
+
+## Background knowledge
+In Python, you can manipulate the `__path__` variable that is available 
 in a package's `__init__.py` file. This variable contains a _list_ of the
 locations that Python will look for this package and its submodules. 
 
@@ -25,13 +39,6 @@ my feature is running
 ✦ ❯ uv run python -c 'import engine.submodule.core.other_feature'
 not core
 ```
-
-## The problem
-
-IntelliJ (2025.1.6 Ultimate Edition) does not recognise this:
-![problem.png](problem.png)
-
-You cannot navigate to submodules of `engine`, even though Python has no issues with this
 
 ## Reproduction
 
